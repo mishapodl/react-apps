@@ -1,13 +1,15 @@
 import React from 'react';
 import { GlobalStyle } from './styles/globalSyle';
 import { NavBar } from "./NavBar/NavBar";
+import { Banner } from "./Banner/Banner";
 
 function App() {
     return (
         <>
-            <NavBar />
             <GlobalStyle />
-            <div>Test</div>
+            <NavBar />
+            <Banner />
+            <div>Hello Sliceline</div>
         </>
     );
 }

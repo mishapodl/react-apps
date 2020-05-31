@@ -15,3 +15,9 @@ export const LogoContainer = styled(TitleContainer)`
     color: ${logo};
     text-shadow: 1px 1px 4px #380502;
 `;
+export const BannerContainer = styled.div`
+    height: 200px;
+    background-image: url("img/pizza.jpg");
+    background-position: 20% 0%;
+    background-size: cover;
+`;
