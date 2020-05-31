@@ -1,10 +1,11 @@
 import React from 'react';
 import { GlobalStyle } from './styles/globalSyle';
+import { NavBar } from "./NavBar/NavBar";
 
 function App() {
     return (
         <>
-            <h1>Slice</h1>
+            <NavBar />
             <GlobalStyle />
             <div>Test</div>
         </>

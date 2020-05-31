@@ -1,13 +1,14 @@
-import React from 'react';
-import { NavBarStyle } from "./../styles/styles";
+import React from "react";
+import { NavBarContainer, LogoContainer } from "./../styles/styles";
 
-interface NavBarProps {
-
-}
+interface NavBarProps {}
 
 export const NavBar = (props: NavBarProps) => {
     return (
-    <NavBarStyle>
-
-    </NavBarStyle>);
+        <NavBarContainer>
+            <LogoContainer>
+                Sliceline <span role="img" aria-label="pizza">🍕</span>
+            </LogoContainer>
+        </NavBarContainer>
+    );
 };
