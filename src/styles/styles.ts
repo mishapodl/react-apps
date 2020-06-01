@@ -1,6 +1,10 @@
 import styled from "styled-components";
 import { pizzaRed, logo } from "./colors";
 
+interface FoodProps {
+    img: string;
+}
+
 export const NavBarContainer = styled.div`
     background-color: ${pizzaRed};
     padding: 10px;
@@ -18,8 +22,8 @@ export const LogoContainer = styled(TitleContainer)`
 `;
 export const BannerContainer = styled.div`
     height: 200px;
-    background-image: url("img/pizza.jpg");
-    background-position: 20% 0%;
+    background-image: url("img/banner.jpeg");
+    background-position: center;
     background-size: cover;
     filter: contrast(75%);
 `;
@@ -33,7 +37,24 @@ export const FoodGrid = styled.div`
     gap: 20px;
 `;
 
-export const Food = styled.div`
+export const FoodContainer = styled(TitleContainer)`
     height: 100px;
-    background-image: ${({ img }) => `url(${img});`}
+    padding: 10px;
+    font-family: 20px;
+    background-image: ${(props: FoodProps) => `url(${props.img});`};
+    background-position: center;
+    background-size: cover;
+    filter: contrast(75%);
+    border-radius: 7px;
+    box-shadow: 0 0 10px 0 grey;
+    &:hover {
+        opacity: 0.7;
+        cursor: pointer;
+        transition: 0.3s;
+    }
+`;
+export const FoodLabel = styled.div`
+    position: absolute;
+    background-color: #ffffffcc;
+    padding: 5px;
 `;
