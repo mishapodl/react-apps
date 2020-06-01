@@ -6,7 +6,7 @@ export const NavBarContainer = styled.div`
     padding: 10px;
     position: fixed;
     width: 100%;
-    z-index:1;
+    z-index: 1;
 `;
 const TitleContainer = styled.div`
     font-family: "Righteous", cursive;
@@ -22,4 +22,18 @@ export const BannerContainer = styled.div`
     background-position: 20% 0%;
     background-size: cover;
     filter: contrast(75%);
+`;
+export const MenuContainer = styled.div`
+    height: 1000px;
+    margin: 0 400px 50px 20px;
+`;
+export const FoodGrid = styled.div`
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+`;
+
+export const Food = styled.div`
+    height: 100px;
+    background-image: ${({ img }) => `url(${img});`}
 `;
