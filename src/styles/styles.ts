@@ -31,7 +31,7 @@ export const MenuContainer = styled.div`
     height: 1000px;
     margin: 0 400px 50px 20px;
 `;
-export const FoodGrid = styled.div`
+export const FoodGridContainer = styled.div`
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 20px;
@@ -46,11 +46,16 @@ export const FoodContainer = styled(TitleContainer)`
     background-size: cover;
     filter: contrast(75%);
     border-radius: 7px;
-    box-shadow: 0 0 10px 0 grey;
+    margin-top: 5px;
+    transition-property: box-shadow margin-top filter;
+    transition-duration: .2s;
+    box-shadow: 0 0px 2px 0 grey;
     &:hover {
-        opacity: 0.7;
         cursor: pointer;
-        transition: 0.3s;
+        filter: contrast(100%);
+        margin-top: 0;
+        margin-bottom: 5px;
+        box-shadow: 0 5px 10px 0 grey;
     }
 `;
 export const FoodLabel = styled.div`
