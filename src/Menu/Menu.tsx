@@ -1,11 +1,7 @@
 import React, { Fragment } from "react";
-import {
-    MenuContainer,
-    FoodGrid,
-    FoodContainer,
-    FoodLabel,
-} from "../styles/styles";
-import { foods, Food } from "./../data/food";
+import { MenuContainer } from "../styles/styles";
+import { foods } from "./../data/food";
+import { FoodGrid } from "./FoodGrid";
 
 export const Menu = () => {
     return (
@@ -13,13 +9,7 @@ export const Menu = () => {
             {Object.entries(foods).map(([sectionName, foods], index) => (
                 <Fragment key={index}>
                     <h1>{sectionName}</h1>
-                    <FoodGrid>
-                        {foods.map(({ img, name }: Food, index: number) => (
-                            <FoodContainer img={img} key={index}>
-                                <FoodLabel>{name}</FoodLabel>
-                            </FoodContainer>
-                        ))}
-                    </FoodGrid>
+                    <FoodGrid foods={foods} />
                 </Fragment>
             ))}
         </MenuContainer>
