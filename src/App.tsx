@@ -11,7 +11,6 @@ function App() {
             <NavBar />
             <Banner />
             <Menu />
-            <div>Hello Sliceline</div>
         </>
     );
 }

@@ -7,7 +7,7 @@ export const NavBar = (props: NavBarProps) => {
     return (
         <NavBarContainer>
             <LogoContainer>
-                Sliceline <span role="img" aria-label="pizza">🍕</span>
+                Sliceline <span role="img" aria-label="pizza slice">🍕</span>
             </LogoContainer>
         </NavBarContainer>
     );
