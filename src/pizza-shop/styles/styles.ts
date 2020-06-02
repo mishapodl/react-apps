@@ -81,8 +81,21 @@ export const FoodDialogContent = styled.div`
     height: 100px;
 `;
 export const FoodDialogFooter = styled.div`
-    box-shadow: 0 2px 20px 0 grey;
+    box-shadow: 0 -2px 10px 0 grey;
     height: 60px;
+    display: flex;
+    justify-content: center;
+`;
+export const FoodDialogConfirmButton = styled(TitleContainer)`
+    margin: 10px;
+    color: ${white};
+    height: 20px;
+    border-radius: 5px;
+    padding: 10px;
+    text-align: center;
+    width: 200px;
+    cursor: pointer;
+    background-color: ${pizzaRed};
 `;
 export const FoodDialogContainerShadow = styled.div`
     position: fixed;
@@ -117,7 +130,12 @@ export const OrderContainer = styled.div`
     background-color: ${white};
     height: calc(100% - 46px);
     z-index: 10;
-    box-shadow: ${grey_shadow}
+    box-shadow: ${grey_shadow};
+    display: flex;
+    flex-direction: column;
 `;
 
-/* export const OrderContainer = styled.div``; */
+export const OrderContent = styled(FoodDialogContent)`
+    padding: 20px;
+    height: 100%;
+`;

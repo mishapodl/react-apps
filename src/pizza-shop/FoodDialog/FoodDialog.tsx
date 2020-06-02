@@ -5,7 +5,8 @@ import {
     FoodDialogContainerShadow,
     FoodDialogBannerName,
     FoodDialogContent,
-    FoodDialogFooter
+    FoodDialogFooter,
+    FoodDialogConfirmButton,
 } from "../styles/styles";
 
 interface Food {
@@ -29,7 +30,9 @@ export const FoodDialog = ({ food, setOpenFood }: FoodDialogProps) => {
                     <FoodDialogBannerName>{food.name}</FoodDialogBannerName>
                 </FoodDialogBanner>
                 <FoodDialogContent></FoodDialogContent>
-                <FoodDialogFooter></FoodDialogFooter>
+                <FoodDialogFooter>
+                    <FoodDialogConfirmButton>Add to order</FoodDialogConfirmButton>
+                </FoodDialogFooter>
             </FoodDialogContainer>
         </Fragment>
     ) : null;
