@@ -9,10 +9,7 @@ interface ColumnProps {
     index: number;
 }
 
-export const Column = ({
-    text,
-    index,
-}: React.PropsWithChildren<ColumnProps>) => {
+export const Column = ({ text, index }: ColumnProps) => {
     const { state } = useAppState();
     return (
         <ColumnConteiner>
