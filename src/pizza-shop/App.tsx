@@ -4,6 +4,7 @@ import { NavBar } from "./NavBar/NavBar";
 import { Banner } from "./Banner/Banner";
 import { Menu } from "./Menu/Menu";
 import { FoodDialog } from "./FoodDialog/FoodDialog";
+import { Order } from "./Order/Order";
 
 function PizzaShop() {
     const [openFood, setOpenFood] = useState();
@@ -15,6 +16,7 @@ function PizzaShop() {
             <NavBar />
             <Banner />
             <Menu setOpenFood={setOpenFood} />
+            <Order />
         </>
     );
 }
