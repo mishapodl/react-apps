@@ -1,9 +1,9 @@
-import React, { Fragment } from "react";
+import React, { Fragment, FC } from "react";
 import { MenuContainer } from "../styles/styles";
 import { foods } from "./../data/food";
 import { FoodGrid } from "./FoodGrid";
 
-export const Menu = () => {
+export const Menu: FC = () => {
     return (
         <MenuContainer>
             {Object.entries(foods).map(([sectionName, foods], index) => (
