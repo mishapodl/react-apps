@@ -48,7 +48,7 @@ export const FoodContainer = styled.div`
     border-radius: 7px;
     margin-top: 5px;
     transition-property: box-shadow margin-top filter;
-    transition-duration: .2s;
+    transition-duration: 0.2s;
     box-shadow: 0 0px 2px 0 grey;
     &:hover {
         cursor: pointer;
@@ -73,7 +73,7 @@ export const FoodDialogContainer = styled.div`
     top: 75px;
     z-index: 5;
     max-height: calc(100% - 100px);
-    left: calc(50% - 250px);    
+    left: calc(50% - 250px);
 `;
 export const FoodDialogContainerShadow = styled.div`
     position: fixed;
@@ -81,14 +81,14 @@ export const FoodDialogContainerShadow = styled.div`
     width: 100%;
     top: 0;
     background-color: #000;
-    opacity: .7;
+    opacity: 0.7;
     z-index: 4;
 `;
 
 export const FoodDialogBanner = styled.div`
     min-height: 200px;
     margin-bottom: 20px;
-    ${({ img }: FoodProps )=> `background-image: url(${img});`}
+    ${({ img }: FoodProps) => `background-image: url(${img});`}
     background-position: center;
     background-size: cover;
 `;
