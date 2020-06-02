@@ -1,11 +1,11 @@
 export interface Food {
     name: string;
     img: string;
-    section: string
+    section: string;
 }
 
 export interface FoodSection {
-    section: Array<Food>
+    section: Array<Food>;
 }
 
 export const foodsItems: Array<Food> = [
@@ -58,17 +58,17 @@ export const foodsItems: Array<Food> = [
         // price: 1,
     },
     // {
-        // price: 1,
-        // name: "Soda",
-        // section: "Drinks",
-        // choices: ["Coke", "Sprite", "Root Beer"],
+    // price: 1,
+    // name: "Soda",
+    // section: "Drinks",
+    // choices: ["Coke", "Sprite", "Root Beer"],
     // },
 ];
 
-export const foods: FoodSection = foodsItems.reduce((res: any, food ) => {
-    if(!res[food.section]) {
+export const foods: FoodSection = foodsItems.reduce((res: any, food) => {
+    if (!res[food.section]) {
         res[food.section] = [];
     }
     res[food.section].push(food);
     return res;
-}, {})
+}, {});

@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { pizzaRed, logo } from "./colors";
+import { pizzaRed, logo, black, white, grey, white_transparent, grey_shadow } from "./colors";
 
 interface FoodProps {
     img: string;
@@ -37,7 +37,7 @@ export const FoodGridContainer = styled.div`
     gap: 20px;
 `;
 
-export const FoodContainer = styled(TitleContainer)`
+export const FoodContainer = styled.div`
     height: 100px;
     padding: 10px;
     font-family: 20px;
@@ -48,18 +48,94 @@ export const FoodContainer = styled(TitleContainer)`
     border-radius: 7px;
     margin-top: 5px;
     transition-property: box-shadow margin-top filter;
-    transition-duration: .2s;
-    box-shadow: 0 0px 2px 0 grey;
+    transition-duration: 0.2s;
+    box-shadow: 0 0px 2px 0 ${grey};
     &:hover {
         cursor: pointer;
         filter: contrast(100%);
         margin-top: 0;
         margin-bottom: 5px;
-        box-shadow: 0 5px 10px 0 grey;
+        box-shadow: ${grey_shadow};
     }
 `;
-export const FoodLabel = styled.div`
+export const FoodLabel = styled(TitleContainer)`
     position: absolute;
-    background-color: #ffffffcc;
+    background-color: ${white_transparent};
     padding: 5px;
+    border-top-left-radius: 7px;
+`;
+
+export const FoodDialogContainer = styled.div`
+    width: 500px;
+    background-color: ${white};
+    position: fixed;
+    top: 75px;
+    z-index: 5;
+    max-height: calc(100% - 100px);
+    left: calc(50% - 250px);
+    display: flex;
+    flex-direction: column;
+`;
+export const FoodDialogContent = styled.div`
+    overflow: auto;
+    height: 100px;
+`;
+export const FoodDialogFooter = styled.div`
+    box-shadow: 0 -2px 10px 0 grey;
+    height: 60px;
+    display: flex;
+    justify-content: center;
+`;
+export const FoodDialogConfirmButton = styled(TitleContainer)`
+    margin: 10px;
+    color: ${white};
+    height: 20px;
+    border-radius: 5px;
+    padding: 10px;
+    text-align: center;
+    width: 200px;
+    cursor: pointer;
+    background-color: ${pizzaRed};
+`;
+export const FoodDialogContainerShadow = styled.div`
+    position: fixed;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    background-color: ${black};
+    opacity: 0.7;
+    z-index: 4;
+`;
+
+export const FoodDialogBanner = styled.div`
+    min-height: 200px;
+    margin-bottom: 20px;
+    ${({ img }: FoodProps) => `background-image: url(${img});`}
+    background-position: center;
+    background-size: cover;
+`;
+
+export const FoodDialogBannerName = styled(FoodLabel)`
+    top: 100px;
+    font-size: 30px;
+    padding: 5px 40px;
+    border-top-left-radius: 0;
+`;
+
+export const OrderContainer = styled.div`
+    position: fixed;
+    right: 0;
+    top: 46px;
+    width: 340px;
+    background-color: ${white};
+    height: calc(100% - 46px);
+    z-index: 10;
+    box-shadow: ${grey_shadow};
+    display: flex;
+    flex-direction: column;
+`;
+
+export const OrderContent = styled(FoodDialogContent)`
+    padding: 20px;
+    height: 100%;
 `;

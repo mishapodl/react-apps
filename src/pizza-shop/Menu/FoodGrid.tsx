@@ -2,16 +2,21 @@ import React from "react";
 import { FoodGridContainer, FoodContainer, FoodLabel } from "../styles/styles";
 import { Food } from "../data/food";
 
-interface FoodProps {
-    foods: Array<Food>
+interface FoodGridProps {
+    foods: Array<Food>;
+    setOpenFood: any;
 }
 
-export const FoodGrid = ({ foods }: FoodProps) => {
+export const FoodGrid = ({ setOpenFood, foods }: FoodGridProps) => {
     return (
         <FoodGridContainer>
-            {foods.map(({ img, name }: Food, index: number) => (
-                <FoodContainer img={img} key={index}>
-                    <FoodLabel>{name}</FoodLabel>
+            {foods.map((food: Food, index: number) => (
+                <FoodContainer
+                    img={food.img}
+                    key={index}
+                    onClick={() => setOpenFood(food)}
+                >
+                    <FoodLabel>{food.name}</FoodLabel>
                 </FoodContainer>
             ))}
         </FoodGridContainer>
