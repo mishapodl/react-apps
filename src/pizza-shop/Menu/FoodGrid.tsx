@@ -1,6 +1,6 @@
 import React from "react";
 import { FoodGridContainer, FoodContainer, FoodLabel } from "../styles/styles";
-import { Food } from "./../data/food";
+import { Food } from "../data/food";
 
 interface FoodProps {
     foods: Array<Food>

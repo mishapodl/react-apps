@@ -1,5 +1,5 @@
 import React, { FC } from "react";
-import { NavBarContainer, LogoContainer } from "./../styles/styles";
+import { NavBarContainer, LogoContainer } from "../styles/styles";
 
 interface NavBarProps {}
 

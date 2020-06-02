@@ -1,6 +1,6 @@
 import React, { Fragment, FC } from "react";
 import { MenuContainer } from "../styles/styles";
-import { foods } from "./../data/food";
+import { foods } from "../data/food";
 import { FoodGrid } from "./FoodGrid";
 
 export const Menu: FC = () => {
