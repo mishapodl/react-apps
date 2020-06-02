@@ -37,7 +37,7 @@ export const FoodGridContainer = styled.div`
     gap: 20px;
 `;
 
-export const FoodContainer = styled(TitleContainer)`
+export const FoodContainer = styled.div`
     height: 100px;
     padding: 10px;
     font-family: 20px;
@@ -58,8 +58,44 @@ export const FoodContainer = styled(TitleContainer)`
         box-shadow: 0 5px 10px 0 grey;
     }
 `;
-export const FoodLabel = styled.div`
+export const FoodLabel = styled(TitleContainer)`
     position: absolute;
     background-color: #ffffffcc;
     padding: 5px;
+    border-top-left-radius: 7px;
+`;
+
+export const FoodDialogContainer = styled.div`
+    width: 500px;
+    height: 2000px;
+    background-color: #fff;
+    position: fixed;
+    top: 75px;
+    z-index: 5;
+    max-height: calc(100% - 100px);
+    left: calc(50% - 250px);    
+`;
+export const FoodDialogContainerShadow = styled.div`
+    position: fixed;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    background-color: #000;
+    opacity: .7;
+    z-index: 4;
+`;
+
+export const FoodDialogBanner = styled.div`
+    min-height: 200px;
+    margin-bottom: 20px;
+    ${({ img }: FoodProps )=> `background-image: url(${img});`}
+    background-position: center;
+    background-size: cover;
+`;
+
+export const FoodDialogBannerName = styled(FoodLabel)`
+    top: 100px;
+    font-size: 30px;
+    padding: 5px 40px;
+    border-top-left-radius: 0;
 `;
