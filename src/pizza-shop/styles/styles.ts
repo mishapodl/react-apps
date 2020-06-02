@@ -73,6 +73,8 @@ export const FoodDialogContainer = styled.div`
     z-index: 5;
     max-height: calc(100% - 100px);
     left: calc(50% - 250px);
+    display: flex;
+    flex-direction: column;
 `;
 export const FoodDialogContent = styled.div`
     overflow: auto;
@@ -114,7 +116,7 @@ export const OrderContainer = styled.div`
     width: 340px;
     background-color: ${white};
     height: calc(100% - 46px);
-    z-index: 10;
+    z-index: 3;
     box-shadow: ${grey_shadow}
 `;
 
