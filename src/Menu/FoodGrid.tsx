@@ -2,7 +2,11 @@ import React from "react";
 import { FoodGridContainer, FoodContainer, FoodLabel } from "../styles/styles";
 import { Food } from "./../data/food";
 
-export const FoodGrid = ({ foods }: any) => {
+interface FoodProps {
+    foods: Array<Food>
+}
+
+export const FoodGrid = ({ foods }: FoodProps) => {
     return (
         <FoodGridContainer>
             {foods.map(({ img, name }: Food, index: number) => (
