@@ -67,7 +67,7 @@ export const FoodLabel = styled(TitleContainer)`
 
 export const FoodDialogContainer = styled.div`
     width: 500px;
-    background-color: #fff;
+    background-color: ${white};
     position: fixed;
     top: 75px;
     z-index: 5;
