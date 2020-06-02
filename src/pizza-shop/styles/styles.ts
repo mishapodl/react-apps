@@ -67,13 +67,20 @@ export const FoodLabel = styled(TitleContainer)`
 
 export const FoodDialogContainer = styled.div`
     width: 500px;
-    height: 2000px;
     background-color: #fff;
     position: fixed;
     top: 75px;
     z-index: 5;
     max-height: calc(100% - 100px);
     left: calc(50% - 250px);    
+`;
+export const FoodDialogContent = styled.div`
+    overflow: auto;
+    height: 100px;
+`;
+export const FoodDialogFooter = styled.div`
+    box-shadow: 0 2px 20px 0 grey;
+    height: 60px;
 `;
 export const FoodDialogContainerShadow = styled.div`
     position: fixed;
