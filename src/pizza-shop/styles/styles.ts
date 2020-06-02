@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { pizzaRed, logo } from "./colors";
+import { pizzaRed, logo, black, white, grey, white_transparent, grey_shadow } from "./colors";
 
 interface FoodProps {
     img: string;
@@ -48,31 +48,33 @@ export const FoodContainer = styled.div`
     border-radius: 7px;
     margin-top: 5px;
     transition-property: box-shadow margin-top filter;
-    transition-duration: .2s;
-    box-shadow: 0 0px 2px 0 grey;
+    transition-duration: 0.2s;
+    box-shadow: 0 0px 2px 0 ${grey};
     &:hover {
         cursor: pointer;
         filter: contrast(100%);
         margin-top: 0;
         margin-bottom: 5px;
-        box-shadow: 0 5px 10px 0 grey;
+        box-shadow: ${grey_shadow};
     }
 `;
 export const FoodLabel = styled(TitleContainer)`
     position: absolute;
-    background-color: #ffffffcc;
+    background-color: ${white_transparent};
     padding: 5px;
     border-top-left-radius: 7px;
 `;
 
 export const FoodDialogContainer = styled.div`
     width: 500px;
-    background-color: #fff;
+    background-color: ${white};
     position: fixed;
     top: 75px;
     z-index: 5;
     max-height: calc(100% - 100px);
-    left: calc(50% - 250px);    
+    left: calc(50% - 250px);
+    display: flex;
+    flex-direction: column;
 `;
 export const FoodDialogContent = styled.div`
     overflow: auto;
@@ -87,15 +89,15 @@ export const FoodDialogContainerShadow = styled.div`
     height: 100%;
     width: 100%;
     top: 0;
-    background-color: #000;
-    opacity: .7;
+    background-color: ${black};
+    opacity: 0.7;
     z-index: 4;
 `;
 
 export const FoodDialogBanner = styled.div`
     min-height: 200px;
     margin-bottom: 20px;
-    ${({ img }: FoodProps )=> `background-image: url(${img});`}
+    ${({ img }: FoodProps) => `background-image: url(${img});`}
     background-position: center;
     background-size: cover;
 `;
@@ -106,3 +108,16 @@ export const FoodDialogBannerName = styled(FoodLabel)`
     padding: 5px 40px;
     border-top-left-radius: 0;
 `;
+
+export const OrderContainer = styled.div`
+    position: fixed;
+    right: 0;
+    top: 46px;
+    width: 340px;
+    background-color: ${white};
+    height: calc(100% - 46px);
+    z-index: 10;
+    box-shadow: ${grey_shadow}
+`;
+
+/* export const OrderContainer = styled.div``; */
