@@ -1,6 +1,6 @@
 import React, { Fragment } from "react";
-import { MenuContainer } from "../styles/styles";
-import { foods } from "../data/food";
+import { MenuContainer } from "../../styles/styles";
+import { foods } from "../../data/food";
 import { FoodGrid } from "./FoodGrid";
 
 interface MenuProps {

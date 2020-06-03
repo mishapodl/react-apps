@@ -1,10 +1,6 @@
 import React, { useState } from "react";
 import { GlobalStyle } from "./styles/globalSyle";
-import { NavBar } from "./NavBar/NavBar";
-import { Banner } from "./Banner/Banner";
-import { Menu } from "./Menu/Menu";
-import { FoodDialog } from "./FoodDialog/FoodDialog";
-import { Order } from "./Order/Order";
+import { NavBar, Banner, Menu, FoodDialog, Order } from "./Components/index";
 
 function PizzaShop() {
     const [openFood, setOpenFood] = useState();

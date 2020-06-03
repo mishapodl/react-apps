@@ -4,7 +4,7 @@ import {
     OrderContent,
     FoodDialogFooter,
     FoodDialogConfirmButton,
-} from "../styles/styles";
+} from "../../styles/styles";
 
 export const Order = () => {
     return (

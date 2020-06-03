@@ -1,5 +1,5 @@
 import React, { FC } from "react";
-import { BannerContainer } from "../styles/styles";
+import { BannerContainer } from "../../styles/styles";
 
 interface BannerProps {}
 

@@ -7,7 +7,7 @@ import {
     FoodDialogContent,
     FoodDialogFooter,
     FoodDialogConfirmButton,
-} from "../styles/styles";
+} from "../../styles/styles";
 
 interface Food {
     img: string;
