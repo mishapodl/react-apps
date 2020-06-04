@@ -4,12 +4,30 @@ import {
     OrderContent,
     FoodDialogFooter,
     FoodDialogConfirmButton,
+    OrderConainerItem,
+    OrderItem,
 } from "../../styles/styles";
 
-export const Order = () => {
+interface OrderProps {
+    orders: Array<any>;
+}
+
+export const Order = ({ orders }: OrderProps) => {
     return (
         <OrderContainer>
-            <OrderContent>Your order empty.</OrderContent>
+            {orders.length === 0 ? (
+                <OrderContent>Your order empty.</OrderContent>
+            ) : (
+                <OrderContent>
+                    {" "}
+                    <OrderConainerItem> Your order:</OrderConainerItem>{" "}
+                    {orders.map((order) => (
+                        <OrderConainerItem>
+                            <OrderItem>{order.name}</OrderItem>
+                        </OrderConainerItem>
+                    ))}
+                </OrderContent>
+            )}
             <FoodDialogFooter>
                 <FoodDialogConfirmButton>Checkout</FoodDialogConfirmButton>
             </FoodDialogFooter>

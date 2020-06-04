@@ -15,25 +15,37 @@ interface Food {
 }
 
 interface FoodDialogProps {
-    food: Food | undefined;
+    openFood: Food | undefined;
     setOpenFood: any;
+    orders: Array<any>;
+    setOrders: any
 }
 
-export const FoodDialog = ({ food, setOpenFood }: FoodDialogProps) => {
+export const FoodDialog = ({ openFood, setOpenFood, orders, setOrders }: FoodDialogProps) => {
     const close = () => setOpenFood();
+    
+    if(!openFood) return null;
 
-    return food ? (
+    const order = {
+        name: openFood.name
+    }
+    const addToOrder = () => {
+        setOrders([...orders, order]);
+        close();
+    }
+
+    return (
         <Fragment>
             <FoodDialogContainerShadow onClick={close} />
             <FoodDialogContainer>
-                <FoodDialogBanner img={food.img}>
-                    <FoodDialogBannerName>{food.name}</FoodDialogBannerName>
+                <FoodDialogBanner img={openFood.img}>
+                    <FoodDialogBannerName>{openFood.name}</FoodDialogBannerName>
                 </FoodDialogBanner>
                 <FoodDialogContent></FoodDialogContent>
                 <FoodDialogFooter>
-                    <FoodDialogConfirmButton>Add to order</FoodDialogConfirmButton>
+                    <FoodDialogConfirmButton onClick={addToOrder}>Add to order</FoodDialogConfirmButton>
                 </FoodDialogFooter>
             </FoodDialogContainer>
         </Fragment>
-    ) : null;
+    )
 };

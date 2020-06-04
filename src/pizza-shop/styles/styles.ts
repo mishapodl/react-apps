@@ -139,3 +139,10 @@ export const OrderContent = styled(FoodDialogContent)`
     padding: 20px;
     height: 100%;
 `;
+export const OrderConainerItem = styled.div`
+    padding: 10px 0;
+    border-bottom: 1px solid grey;
+`;
+export const OrderItem = styled.div`
+    padding: 10px 0;
+`;
