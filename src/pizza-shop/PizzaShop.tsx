@@ -1,13 +1,12 @@
 import React from "react";
 import { GlobalStyle } from "./styles/globalSyle";
 import { NavBar, Banner, Menu, FoodDialog, Order } from "./Components/index";
-import { useOpenFood } from "./hooks/useOpenFood";
-import { useOrders } from "./hooks/useOrders";
+import { useOpenFood, useOrders, useTitle } from "./hooks/index";
 
 function PizzaShop() {
     const openFood = useOpenFood();
     const orders = useOrders();
-
+    useTitle({ ...openFood, ...orders });
     return (
         <>
             <GlobalStyle />
