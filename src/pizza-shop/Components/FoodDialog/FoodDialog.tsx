@@ -8,10 +8,12 @@ import {
     FoodDialogFooter,
     FoodDialogConfirmButton,
 } from "../../styles/styles";
+import { formatPrice } from "./../../data/food";
 
 interface Food {
     img: string;
     name: string;
+    price: any;
 }
 
 interface FoodDialogProps {
@@ -27,7 +29,7 @@ export const FoodDialog = ({ openFood, setOpenFood, orders, setOrders }: FoodDia
     if(!openFood) return null;
 
     const order = {
-        name: openFood.name
+        ...openFood
     }
     const addToOrder = () => {
         setOrders([...orders, order]);
@@ -43,7 +45,7 @@ export const FoodDialog = ({ openFood, setOpenFood, orders, setOrders }: FoodDia
                 </FoodDialogBanner>
                 <FoodDialogContent></FoodDialogContent>
                 <FoodDialogFooter>
-                    <FoodDialogConfirmButton onClick={addToOrder}>Add to order</FoodDialogConfirmButton>
+                    <FoodDialogConfirmButton onClick={addToOrder}>Add to order: {formatPrice(order.price)} </FoodDialogConfirmButton>
                 </FoodDialogFooter>
             </FoodDialogContainer>
         </Fragment>

@@ -7,6 +7,7 @@ import {
     OrderConainerItem,
     OrderItem,
 } from "../../styles/styles";
+import { formatPrice } from "./../../data/food";
 
 interface OrderProps {
     orders: Array<any>;
@@ -21,9 +22,13 @@ export const Order = ({ orders }: OrderProps) => {
                 <OrderContent>
                     {" "}
                     <OrderConainerItem> Your order:</OrderConainerItem>{" "}
-                    {orders.map((order) => (
-                        <OrderConainerItem>
-                            <OrderItem>{order.name}</OrderItem>
+                    {orders.map((order, index) => (
+                        <OrderConainerItem key={index}>
+                            <OrderItem>
+                                <div>1</div>
+                                <div>{order.name}</div>
+                                <div>{formatPrice(order.price)}</div>
+                            </OrderItem>
                         </OrderConainerItem>
                     ))}
                 </OrderContent>

@@ -1,6 +1,10 @@
 import React from "react";
-import { FoodGridContainer, FoodContainer, FoodLabel } from "../../styles/styles";
-import { Food } from "../../data/food";
+import {
+    FoodGridContainer,
+    FoodContainer,
+    FoodLabel,
+} from "../../styles/styles";
+import { Food, formatPrice } from "../../data/food";
 
 interface FoodGridProps {
     foods: Array<Food>;
@@ -16,7 +20,10 @@ export const FoodGrid = ({ setOpenFood, foods }: FoodGridProps) => {
                     key={index}
                     onClick={() => setOpenFood(food)}
                 >
-                    <FoodLabel>{food.name}</FoodLabel>
+                    <FoodLabel>
+                        <div>{food.name}</div>
+                        <div>{formatPrice(food.price)}</div>
+                    </FoodLabel>
                 </FoodContainer>
             ))}
         </FoodGridContainer>

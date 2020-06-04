@@ -144,5 +144,8 @@ export const OrderConainerItem = styled.div`
     border-bottom: 1px solid grey;
 `;
 export const OrderItem = styled.div`
+    display: grid;
+    grid-template-columns: 2px 150px 20px 60px;
+    justify-content:space-between;
     padding: 10px 0;
 `;
