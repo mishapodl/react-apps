@@ -3,7 +3,7 @@ import { NavBarContainer, LogoContainer } from "../../styles/styles";
 
 interface NavBarProps {}
 
-export const NavBar: FC = ({}: NavBarProps) => {
+export const NavBar: FC = () => {
     return (
         <NavBarContainer>
             <LogoContainer>

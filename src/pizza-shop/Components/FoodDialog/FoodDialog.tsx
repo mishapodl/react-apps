@@ -1,6 +1,6 @@
 import React, { Fragment } from "react";
 import {
-    FoodDialogContainer,
+    FoodDialogContainerStyle,
     FoodDialogBanner,
     FoodDialogContainerShadow,
     FoodDialogBannerName,
@@ -8,46 +8,57 @@ import {
     FoodDialogFooter,
     FoodDialogConfirmButton,
 } from "../../styles/styles";
-import { formatPrice } from "./../../data/food";
-
-interface Food {
-    img: string;
-    name: string;
-    price: any;
-}
+import { formatPrice, FoodInterface, getPrice } from "./../../utils";
+import { Quantity } from "./Quantity";
+import { useQuantity } from "./../../hooks/index";
 
 interface FoodDialogProps {
-    openFood: Food | undefined;
+    openFood: FoodInterface;
     setOpenFood: any;
     orders: Array<any>;
-    setOrders: any
+    setOrders: any;
 }
 
-export const FoodDialog = ({ openFood, setOpenFood, orders, setOrders }: FoodDialogProps) => {
+const FoodDialogContainer = ({
+    openFood,
+    setOpenFood,
+    orders,
+    setOrders,
+}: FoodDialogProps) => {
     const close = () => setOpenFood();
-    
-    if(!openFood) return null;
+    const quantity = useQuantity(openFood && 1);
 
     const order = {
-        ...openFood
-    }
+        ...openFood,
+        quantity: quantity.quantity,
+    };
+
     const addToOrder = () => {
         setOrders([...orders, order]);
         close();
-    }
+    };
 
     return (
         <Fragment>
             <FoodDialogContainerShadow onClick={close} />
-            <FoodDialogContainer>
+            <FoodDialogContainerStyle>
                 <FoodDialogBanner img={openFood.img}>
                     <FoodDialogBannerName>{openFood.name}</FoodDialogBannerName>
                 </FoodDialogBanner>
-                <FoodDialogContent></FoodDialogContent>
+                <FoodDialogContent>
+                    <Quantity quantitys={quantity} />
+                </FoodDialogContent>
                 <FoodDialogFooter>
-                    <FoodDialogConfirmButton onClick={addToOrder}>Add to order: {formatPrice(order.price)} </FoodDialogConfirmButton>
+                    <FoodDialogConfirmButton onClick={addToOrder}>
+                        Add to order: {formatPrice(getPrice(order))}{" "}
+                    </FoodDialogConfirmButton>
                 </FoodDialogFooter>
-            </FoodDialogContainer>
+            </FoodDialogContainerStyle>
         </Fragment>
-    )
+    );
+};
+
+export const FoodDialog = (props: any) => {
+    if (!props.openFood) return null;
+    return <FoodDialogContainer {...props} />;
 };

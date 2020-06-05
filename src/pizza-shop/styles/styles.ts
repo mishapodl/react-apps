@@ -1,5 +1,13 @@
 import styled from "styled-components";
-import { pizzaRed, logo, black, white, grey, white_transparent, grey_shadow } from "./colors";
+import {
+    pizzaRed,
+    logo,
+    black,
+    white,
+    grey,
+    white_transparent,
+    grey_shadow,
+} from "./colors";
 
 interface FoodProps {
     img: string;
@@ -65,7 +73,7 @@ export const FoodLabel = styled(TitleContainer)`
     border-top-left-radius: 7px;
 `;
 
-export const FoodDialogContainer = styled.div`
+export const FoodDialogContainerStyle = styled.div`
     width: 500px;
     background-color: ${white};
     position: fixed;
@@ -146,6 +154,40 @@ export const OrderConainerItem = styled.div`
 export const OrderItem = styled.div`
     display: grid;
     grid-template-columns: 2px 150px 20px 60px;
-    justify-content:space-between;
+    justify-content: space-between;
     padding: 10px 0;
+`;
+export const QuantityInput = styled.input`
+    font-size: 18px;
+    width: 25px;
+    text-align: center;
+    border: none;
+    outline: none;
+`;
+export const IncrementContainer = styled(TitleContainer)`
+    display: flex;
+    height: 24px;
+    padding-left: 30px;
+`;
+export const IncrementButton = styled.button`
+    width: 23px;
+    font-size: 20px;
+    padding: -12px;
+    text-align: center;
+    cursor: pointer;
+    line-height: 23px;
+    margin: 0 10px;
+    color: ${pizzaRed};
+    border-radius: 5px;
+    border: 1px solid ${pizzaRed};
+    border-radius: 0;
+    ${({ disabled }: any) =>
+        disabled &&
+        `
+            opacity: 0.5;  
+            pointer-events: none;
+        `};
+    &:hover {
+        background-color: #ffe3e3;
+    }
 `;

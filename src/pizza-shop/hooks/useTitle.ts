@@ -1,6 +1,11 @@
 import { useEffect } from "react";
 
-export const useTitle = ({ openFood, orders }: any) => {
+interface TitleProps {
+    openFood: any;
+    orders: any;
+}
+
+export const useTitle = ({ openFood, orders }: TitleProps) => {
     useEffect(() => {
         if (openFood) {
             document.title = openFood.name;

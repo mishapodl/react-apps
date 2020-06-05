@@ -1,22 +1,6 @@
-export interface Food {
-    name: string;
-    img: string;
-    section: string;
-    price: number;
-}
+import { FoodInterface } from "../utils";
 
-export interface FoodSection {
-    section: Array<Food>;
-}
-
-export const formatPrice = (price: number) => (
-    price.toLocaleString("en-US", {
-        style: "currency",
-        currency: "USD"
-    })
-);
-
-export const foodsItems: Array<Food> = [
+export const foodsItems: Array<FoodInterface> = [
     {
         name: "Cheese Pizza",
         img: "/img/pizza.png",
@@ -51,7 +35,7 @@ export const foodsItems: Array<Food> = [
         name: "Gyro",
         img: "/img/gyro.jpeg",
         section: "Sandwich",
-        price: 4.5
+        price: 4.5,
     },
     {
         img: "/img/sandwich.jpeg",
@@ -72,11 +56,3 @@ export const foodsItems: Array<Food> = [
     // choices: ["Coke", "Sprite", "Root Beer"],
     // },
 ];
-
-export const foods: FoodSection = foodsItems.reduce((res: any, food) => {
-    if (!res[food.section]) {
-        res[food.section] = [];
-    }
-    res[food.section].push(food);
-    return res;
-}, {});

@@ -4,17 +4,17 @@ import {
     FoodContainer,
     FoodLabel,
 } from "../../styles/styles";
-import { Food, formatPrice } from "../../data/food";
+import { FoodInterface, formatPrice } from "../../utils";
 
 interface FoodGridProps {
-    foods: Array<Food>;
+    menu: Array<FoodInterface>;
     setOpenFood: any;
 }
 
-export const FoodGrid = ({ setOpenFood, foods }: FoodGridProps) => {
+export const FoodGrid = ({ setOpenFood, menu }: FoodGridProps) => {
     return (
         <FoodGridContainer>
-            {foods.map((food: Food, index: number) => (
+            {menu.map((food: FoodInterface, index: number) => (
                 <FoodContainer
                     img={food.img}
                     key={index}

@@ -7,10 +7,10 @@ import {
     OrderConainerItem,
     OrderItem,
 } from "../../styles/styles";
-import { formatPrice } from "./../../data/food";
+import { formatPrice, OrderInterface, getPrice } from "./../../utils";
 
 interface OrderProps {
-    orders: Array<any>;
+    orders: Array<OrderInterface>;
 }
 
 export const Order = ({ orders }: OrderProps) => {
@@ -25,9 +25,9 @@ export const Order = ({ orders }: OrderProps) => {
                     {orders.map((order, index) => (
                         <OrderConainerItem key={index}>
                             <OrderItem>
-                                <div>1</div>
+                                <div>{order.quantity}</div>
                                 <div>{order.name}</div>
-                                <div>{formatPrice(order.price)}</div>
+                                <div>{formatPrice(getPrice(order))}</div>
                             </OrderItem>
                         </OrderConainerItem>
                     ))}

@@ -4,10 +4,4 @@ import { Menu } from "./Menu/Menu";
 import { Order } from "./Order/Order";
 import { FoodDialog } from "./FoodDialog/FoodDialog";
 
-export {
-    NavBar,
-    Banner,
-    Menu,
-    Order,
-    FoodDialog
-}
+export { NavBar, Banner, Menu, Order, FoodDialog };
