@@ -87,6 +87,7 @@ export const FoodDialogContainerStyle = styled.div`
 export const FoodDialogContent = styled.div`
     overflow: auto;
     height: 100px;
+    padding-left: 30px;
 `;
 export const FoodDialogFooter = styled.div`
     box-shadow: 0 -2px 10px 0 grey;
@@ -167,7 +168,6 @@ export const QuantityInput = styled.input`
 export const IncrementContainer = styled(TitleContainer)`
     display: flex;
     height: 24px;
-    padding-left: 30px;
 `;
 export const IncrementButton = styled.button`
     width: 23px;
