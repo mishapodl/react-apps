@@ -14,6 +14,11 @@ interface OrderProps {
 }
 
 export const Order = ({ orders }: OrderProps) => {
+    const subtotal: number = orders.reduce((total, order) => {
+        return total + getPrice(order);
+    }, 0);
+    const tax: number = subtotal * 0.07;
+    const total: number = subtotal + tax;
     return (
         <OrderContainer>
             {orders.length === 0 ? (
@@ -31,6 +36,23 @@ export const Order = ({ orders }: OrderProps) => {
                             </OrderItem>
                         </OrderConainerItem>
                     ))}
+                    <OrderConainerItem>
+                        <OrderItem>
+                            <div />
+                            <div>Subtotal: </div>
+                            <div>{formatPrice(subtotal)}</div>
+                        </OrderItem>
+                        <OrderItem>
+                            <div />
+                            <div>Tax: </div>
+                            <div>{formatPrice(tax)}</div>
+                        </OrderItem>
+                        <OrderItem>
+                            <div />
+                            <div>Total: </div>
+                            <div>{formatPrice(total)}</div>
+                        </OrderItem>
+                    </OrderConainerItem>
                 </OrderContent>
             )}
             <FoodDialogFooter>
