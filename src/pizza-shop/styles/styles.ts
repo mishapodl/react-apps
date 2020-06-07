@@ -87,6 +87,8 @@ export const FoodDialogContainerStyle = styled.div`
 export const FoodDialogContent = styled.div`
     overflow: auto;
     height: 100px;
+    padding-left: 30px;
+    padding-bottom: 80px;
 `;
 export const FoodDialogFooter = styled.div`
     box-shadow: 0 -2px 10px 0 grey;
@@ -157,6 +159,12 @@ export const OrderItem = styled.div`
     justify-content: space-between;
     padding: 10px 0;
 `;
+export const DetailItem = styled.div`
+    color: grey;
+    font-size: 10px;
+    margin-left: 25px;
+    margin-right: 20px;
+`;
 export const QuantityInput = styled.input`
     font-size: 18px;
     width: 25px;
@@ -167,7 +175,6 @@ export const QuantityInput = styled.input`
 export const IncrementContainer = styled(TitleContainer)`
     display: flex;
     height: 24px;
-    padding-left: 30px;
 `;
 export const IncrementButton = styled.button`
     width: 23px;
@@ -190,4 +197,15 @@ export const IncrementButton = styled.button`
     &:hover {
         background-color: #ffe3e3;
     }
+`;
+export const ToppingsGrid = styled.div`
+    display: grid;
+    grid-template-columns: repeat(3fr, 1fr);
+`;
+export const ToppingsCheckBox = styled.input`
+    margin-right: 10px;
+    cursor: pointer;
+`;
+export const ToppingsLabel = styled.label`
+    cursor: pointer;
 `;

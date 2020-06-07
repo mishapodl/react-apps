@@ -6,6 +6,7 @@ import {
     FoodDialogConfirmButton,
     OrderConainerItem,
     OrderItem,
+    DetailItem,
 } from "../../styles/styles";
 import { formatPrice, OrderInterface, getPrice } from "./../../utils";
 
@@ -15,7 +16,7 @@ interface OrderProps {
 
 export const Order = ({ orders }: OrderProps) => {
     const subtotal: number = orders.reduce((total, order) => {
-        return total + getPrice(order);
+        return total + getPrice(order, true);
     }, 0);
     const tax: number = subtotal * 0.07;
     const total: number = subtotal + tax;
@@ -32,8 +33,14 @@ export const Order = ({ orders }: OrderProps) => {
                             <OrderItem>
                                 <div>{order.quantity}</div>
                                 <div>{order.name}</div>
-                                <div>{formatPrice(getPrice(order))}</div>
+                                <div>{formatPrice(getPrice(order, true))}</div>
                             </OrderItem>
+                            <DetailItem>
+                                {order.toppings
+                                    .filter((t) => t.checked)
+                                    .map((topping) => topping.name)
+                                    .join(", ")}
+                            </DetailItem>
                         </OrderConainerItem>
                     ))}
                     <OrderConainerItem>
