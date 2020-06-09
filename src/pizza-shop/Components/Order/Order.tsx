@@ -28,7 +28,7 @@ export const Order = ({ orders }: OrderProps) => {
                 <OrderContent>
                     {" "}
                     <OrderConainerItem> Your order:</OrderConainerItem>{" "}
-                    {orders.map((order, index) => (
+                    {orders.map((order: OrderInterface, index: number) => (
                         <OrderConainerItem key={index}>
                             <OrderItem>
                                 <div>{order.quantity}</div>
@@ -36,10 +36,12 @@ export const Order = ({ orders }: OrderProps) => {
                                 <div>{formatPrice(getPrice(order, true))}</div>
                             </OrderItem>
                             <DetailItem>
-                                {order.toppings
-                                    .filter((t) => t.checked)
-                                    .map((topping) => topping.name)
-                                    .join(", ")}
+                                {order.choice
+                                    ? order.choice
+                                    : order.toppings
+                                          .filter((t) => t.checked)
+                                          .map((topping) => topping.name)
+                                          .join(", ")}
                             </DetailItem>
                         </OrderConainerItem>
                     ))}

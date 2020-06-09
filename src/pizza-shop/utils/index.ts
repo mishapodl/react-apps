@@ -6,12 +6,14 @@ export interface FoodInterface {
     section: string;
     price: number;
     toppings?: Array<Topping>;
+    choices?: any;
 }
 export interface OrderInterface {
     name: string;
     price: number;
     quantity: number;
-    toppings: Array<Topping>
+    toppings: Array<Topping>;
+    choice: Array<Topping>;
 }
 
 export interface QuantityObject {
@@ -27,6 +29,10 @@ export interface FoodSection {
 export interface Topping {
     name: string;
     checked: boolean;
+}
+export interface ChicesInterface {
+    value: any;
+    onChange: any;
 }
 export const formatPrice = (price: number) =>
     price.toLocaleString("en-US", {

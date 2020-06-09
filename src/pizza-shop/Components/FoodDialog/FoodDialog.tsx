@@ -11,7 +11,8 @@ import {
 import { formatPrice, FoodInterface, getPrice } from "./../../utils";
 import { Toppings } from "./Toppings";
 import { Quantity } from "./Quantity";
-import { useQuantity, useToppings } from "./../../hooks/index";
+import { useQuantity, useToppings, useChoice } from "./../../hooks/index";
+import { Choices } from "./Choices";
 
 interface FoodDialogProps {
     openFood: FoodInterface;
@@ -29,32 +30,43 @@ const FoodDialogContainer = ({
     const close = () => setOpenFood();
     const quantity = useQuantity(openFood && 1);
     const toppings = useToppings(openFood.toppings);
+    const choiceRadio = useChoice(openFood.choices);
 
     const order = {
         ...openFood,
         quantity: quantity.quantity,
-        toppings: toppings.toppings
+        toppings: toppings.toppings,
+        choice: choiceRadio.value,
     };
 
     const addToOrder = () => {
+        openFood.choices && console.table(order);
         setOrders([...orders, order]);
         close();
     };
-    const hasToppings = ( food: FoodInterface ) => food.section === 'Pizza';
+    const hasToppings = (food: FoodInterface) => food.section === "Pizza";
     return (
         <Fragment>
             <FoodDialogContainerShadow onClick={close} />
             <FoodDialogContainerStyle>
                 <FoodDialogBanner img={openFood.img}>
-                    <FoodDialogBannerName>{openFood.name}</FoodDialogBannerName>
+                    <FoodDialogBannerName img={openFood.img}>
+                        {openFood.name}
+                    </FoodDialogBannerName>
                 </FoodDialogBanner>
                 <FoodDialogContent>
                     <Quantity quantitys={quantity} />
                     {hasToppings(openFood) && (
                         <Fragment>
                             <h3>Toppings</h3>
-                            <Toppings {...toppings}/>
+                            <Toppings {...toppings} />
                         </Fragment>
+                    )}
+                    {openFood.choices && (
+                        <Choices
+                            openFood={openFood}
+                            choiceRadio={choiceRadio}
+                        />
                     )}
                 </FoodDialogContent>
                 <FoodDialogFooter>

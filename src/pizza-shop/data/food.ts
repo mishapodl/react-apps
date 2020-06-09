@@ -49,10 +49,11 @@ export const foodsItems: Array<FoodInterface> = [
         section: "Sides",
         price: 1,
     },
-    // {
-    // price: 1,
-    // name: "Soda",
-    // section: "Drinks",
-    // choices: ["Coke", "Sprite", "Root Beer"],
-    // },
+    {
+        name: "Soda",
+        img: "",
+        price: 1,
+        section: "Drinks",
+        choices: ["Coke", "Sprite", "Root Beer"],
+    },
 ];

@@ -120,13 +120,14 @@ export const FoodDialogContainerShadow = styled.div`
 export const FoodDialogBanner = styled.div`
     min-height: 200px;
     margin-bottom: 20px;
-    ${({ img }: FoodProps) => `background-image: url(${img});`}
+    ${({ img }: FoodProps) =>
+        img ? `background-image: url(${img});` : `min-height: 75px;`}
     background-position: center;
     background-size: cover;
 `;
 
 export const FoodDialogBannerName = styled(FoodLabel)`
-    top: 100px;
+    top: ${({ img }: FoodProps) => (img ? `100px;` : `20px;`)};
     font-size: 30px;
     padding: 5px 40px;
     border-top-left-radius: 0;
