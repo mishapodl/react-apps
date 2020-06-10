@@ -51,9 +51,16 @@ export const foodsItems: Array<FoodInterface> = [
     },
     {
         name: "Soda",
-        img: "",
+        img: "/img/soda.jpg",
         price: 1,
         section: "Drinks",
         choices: ["Coke", "Sprite", "Root Beer"],
+    },
+    {
+        name: "Tea",
+        img: "/img/tea.jpg",
+        price: 1,
+        section: "Drinks",
+        choices: ["Black", "Green", "Fruits", "Dragon"],
     },
 ];

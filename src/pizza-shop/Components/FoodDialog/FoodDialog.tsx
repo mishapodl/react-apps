@@ -38,9 +38,7 @@ const FoodDialogContainer = ({
         toppings: toppings.toppings,
         choice: choiceRadio.value,
     };
-
     const addToOrder = () => {
-        openFood.choices && console.table(order);
         setOrders([...orders, order]);
         close();
     };
@@ -70,7 +68,13 @@ const FoodDialogContainer = ({
                     )}
                 </FoodDialogContent>
                 <FoodDialogFooter>
-                    <FoodDialogConfirmButton onClick={addToOrder}>
+                    <FoodDialogConfirmButton
+                        onClick={addToOrder}
+                        disable={
+                            openFood.choices &&
+                            openFood.choices === choiceRadio.value
+                        }
+                    >
                         Add to order: {formatPrice(getPrice(order, true))}{" "}
                     </FoodDialogConfirmButton>
                 </FoodDialogFooter>

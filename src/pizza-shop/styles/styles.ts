@@ -12,7 +12,9 @@ import {
 interface FoodProps {
     img: string;
 }
-
+interface ButtonConfirmProps {
+    disable?: boolean;
+}
 export const NavBarContainer = styled.div`
     background-color: ${pizzaRed};
     padding: 10px;
@@ -36,7 +38,7 @@ export const BannerContainer = styled.div`
     filter: contrast(75%);
 `;
 export const MenuContainer = styled.div`
-    height: 1000px;
+    height: 1100px;
     margin: 0 400px 50px 20px;
 `;
 export const FoodGridContainer = styled.div`
@@ -96,6 +98,7 @@ export const FoodDialogFooter = styled.div`
     display: flex;
     justify-content: center;
 `;
+
 export const FoodDialogConfirmButton = styled(TitleContainer)`
     margin: 10px;
     color: ${white};
@@ -106,6 +109,13 @@ export const FoodDialogConfirmButton = styled(TitleContainer)`
     width: 200px;
     cursor: pointer;
     background-color: ${pizzaRed};
+    ${({ disable }: ButtonConfirmProps) =>
+        disable &&
+        `
+            opacity: .5;
+            backgroun-color: grey;
+            pointer-events: none;
+        `}
 `;
 export const FoodDialogContainerShadow = styled.div`
     position: fixed;
