@@ -9,11 +9,10 @@ import {
     grey_shadow,
 } from "./colors";
 
-interface FoodProps {
-    img: string;
-}
-interface ButtonConfirmProps {
+interface StyledProps {
+    img?: string;
     disable?: boolean;
+    editable?: boolean;
 }
 export const NavBarContainer = styled.div`
     background-color: ${pizzaRed};
@@ -51,7 +50,7 @@ export const FoodContainer = styled.div`
     height: 100px;
     padding: 10px;
     font-family: 20px;
-    background-image: ${(props: FoodProps) => `url(${props.img});`};
+    background-image: ${(props: StyledProps) => `url(${props.img});`};
     background-position: center;
     background-size: cover;
     filter: contrast(75%);
@@ -109,7 +108,7 @@ export const FoodDialogConfirmButton = styled(TitleContainer)`
     width: 200px;
     cursor: pointer;
     background-color: ${pizzaRed};
-    ${({ disable }: ButtonConfirmProps) =>
+    ${({ disable }: StyledProps) =>
         disable &&
         `
             opacity: .5;
@@ -130,14 +129,14 @@ export const FoodDialogContainerShadow = styled.div`
 export const FoodDialogBanner = styled.div`
     min-height: 200px;
     margin-bottom: 20px;
-    ${({ img }: FoodProps) =>
+    ${({ img }: StyledProps) =>
         img ? `background-image: url(${img});` : `min-height: 75px;`}
     background-position: center;
     background-size: cover;
 `;
 
 export const FoodDialogBannerName = styled(FoodLabel)`
-    top: ${({ img }: FoodProps) => (img ? `100px;` : `20px;`)};
+    top: ${({ img }: StyledProps) => (img ? `100px;` : `20px;`)};
     font-size: 30px;
     padding: 5px 40px;
     border-top-left-radius: 0;
@@ -163,6 +162,16 @@ export const OrderContent = styled(FoodDialogContent)`
 export const OrderConainerItem = styled.div`
     padding: 10px 0;
     border-bottom: 1px solid grey;
+    transition: 0.3s;
+    ${({ editable }: StyledProps) =>
+        editable
+            ? `
+            &:hover {
+                cursor: pointer;
+                background-color: #e7e7e7;
+            }   
+        `
+            : `pointer-events: none`}
 `;
 export const OrderItem = styled.div`
     display: grid;

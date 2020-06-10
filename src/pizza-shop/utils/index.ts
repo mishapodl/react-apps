@@ -7,6 +7,7 @@ export interface FoodInterface {
     price: number;
     toppings?: Array<Topping>;
     choices?: any;
+    index?: any;
 }
 export interface OrderInterface {
     name: string;

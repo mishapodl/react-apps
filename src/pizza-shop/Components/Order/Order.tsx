@@ -12,14 +12,23 @@ import { formatPrice, OrderInterface, getPrice } from "./../../utils";
 
 interface OrderProps {
     orders: Array<OrderInterface>;
+    setOrders: any;
+    setOpenFood: any;
 }
 
-export const Order = ({ orders }: OrderProps) => {
+export const Order = ({ orders, setOrders, setOpenFood }: OrderProps) => {
     const subtotal: number = orders.reduce((total, order) => {
         return total + getPrice(order, true);
     }, 0);
     const tax: number = subtotal * 0.07;
     const total: number = subtotal + tax;
+
+    const deletItem = (index: number) => {
+        const newOrders = [...orders];
+        newOrders.splice(index, 1);
+        setOrders(newOrders);
+    };
+
     return (
         <OrderContainer>
             {orders.length === 0 ? (
@@ -29,10 +38,21 @@ export const Order = ({ orders }: OrderProps) => {
                     {" "}
                     <OrderConainerItem> Your order:</OrderConainerItem>{" "}
                     {orders.map((order: OrderInterface, index: number) => (
-                        <OrderConainerItem key={index}>
-                            <OrderItem>
+                        <OrderConainerItem key={index} editable={true}>
+                            <OrderItem
+                                onClick={() => setOpenFood({ ...order, index })}
+                            >
                                 <div>{order.quantity}</div>
                                 <div>{order.name}</div>
+                                <div
+                                    style={{ cursor: "pointer", zIndex: 1 }}
+                                    onClick={(e) => {
+                                        e.stopPropagation();
+                                        deletItem(index);
+                                    }}
+                                >
+                                    <span role="img" aria-label="remove">❌</span>
+                                </div>
                                 <div>{formatPrice(getPrice(order, true))}</div>
                             </OrderItem>
                             <DetailItem>

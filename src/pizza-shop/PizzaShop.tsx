@@ -14,7 +14,7 @@ function PizzaShop() {
             <NavBar />
             <Banner />
             <Menu {...openFood} />
-            <Order {...orders} />
+            <Order {...orders} {...openFood} />
         </>
     );
 }
