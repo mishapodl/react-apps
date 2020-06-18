@@ -1,6 +1,6 @@
 import React, { Fragment } from "react";
-import { MenuContainer } from "../styles/styles";
-import { foods } from "../data/food";
+import { MenuContainer } from "../../styles/styles";
+import { menu } from "../../utils";
 import { FoodGrid } from "./FoodGrid";
 
 interface MenuProps {
@@ -10,10 +10,10 @@ interface MenuProps {
 export const Menu = ({ setOpenFood }: MenuProps) => {
     return (
         <MenuContainer>
-            {Object.entries(foods).map(([sectionName, foods], index) => (
+            {Object.entries(menu).map(([sectionName, menu], index) => (
                 <Fragment key={index}>
                     <h1>{sectionName}</h1>
-                    <FoodGrid foods={foods} setOpenFood={setOpenFood} />
+                    <FoodGrid menu={menu} setOpenFood={setOpenFood} />
                 </Fragment>
             ))}
         </MenuContainer>

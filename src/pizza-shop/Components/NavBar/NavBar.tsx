@@ -1,9 +1,9 @@
 import React, { FC } from "react";
-import { NavBarContainer, LogoContainer } from "../styles/styles";
+import { NavBarContainer, LogoContainer } from "../../styles/styles";
 
 interface NavBarProps {}
 
-export const NavBar: FC = ({}: NavBarProps) => {
+export const NavBar: FC = () => {
     return (
         <NavBarContainer>
             <LogoContainer>

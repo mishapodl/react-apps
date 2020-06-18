@@ -1,74 +1,66 @@
-export interface Food {
-    name: string;
-    img: string;
-    section: string;
-}
+import { FoodInterface } from "../utils";
 
-export interface FoodSection {
-    section: Array<Food>;
-}
-
-export const foodsItems: Array<Food> = [
+export const foodsItems: Array<FoodInterface> = [
     {
         name: "Cheese Pizza",
         img: "/img/pizza.png",
         section: "Pizza",
-        // price: 1,
+        price: 1,
     },
     {
         name: "Pepperoni Pizza",
         img: "/img/pizza2.jpeg",
         section: "Pizza",
-        // price: 1.5,
+        price: 1.5,
     },
     {
         name: "Chicken Pizza",
         img: "/img/chicken-pizza.jpeg",
         section: "Pizza",
-        // price: 2,
+        price: 2,
     },
     {
         img: "/img/healthy-pizza.jpeg",
         name: "Veggie Pizza",
         section: "Pizza",
-        // price: 2,
+        price: 2,
     },
     {
         img: "/img/burger.jpeg",
         name: "Burger",
         section: "Sandwich",
-        // price: 3,
+        price: 3,
     },
     {
         name: "Gyro",
         img: "/img/gyro.jpeg",
         section: "Sandwich",
-        // price: 4.5
+        price: 4.5,
     },
     {
         img: "/img/sandwich.jpeg",
         name: "Shrimp PoBoy",
         section: "Sandwich",
-        // price: 6,
+        price: 6,
     },
     {
         img: "/img/fries.jpeg",
         name: "Fries",
         section: "Sides",
-        // price: 1,
+        price: 1,
     },
-    // {
-    // price: 1,
-    // name: "Soda",
-    // section: "Drinks",
-    // choices: ["Coke", "Sprite", "Root Beer"],
-    // },
+    {
+        name: "Soda",
+        img: "/img/soda.jpg",
+        price: 1,
+        section: "Drinks",
+        choices: ["Coke", "Sprite", "Root Beer"],
+    },
+    {
+        name: "Tea",
+        img: "/img/tea.jpg",
+        price: 1,
+        section: "Drinks",
+        choices: ["Black", "Green", "Fruits", "Dragon"],
+    },
 ];
-
-export const foods: FoodSection = foodsItems.reduce((res: any, food) => {
-    if (!res[food.section]) {
-        res[food.section] = [];
-    }
-    res[food.section].push(food);
-    return res;
-}, {});

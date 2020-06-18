@@ -1,10 +1,19 @@
 import styled from "styled-components";
-import { pizzaRed, logo, black, white, grey, white_transparent, grey_shadow } from "./colors";
+import {
+    pizzaRed,
+    logo,
+    black,
+    white,
+    grey,
+    white_transparent,
+    grey_shadow,
+} from "./colors";
 
-interface FoodProps {
-    img: string;
+interface StyledProps {
+    img?: string;
+    disable?: boolean;
+    editable?: boolean;
 }
-
 export const NavBarContainer = styled.div`
     background-color: ${pizzaRed};
     padding: 10px;
@@ -28,7 +37,7 @@ export const BannerContainer = styled.div`
     filter: contrast(75%);
 `;
 export const MenuContainer = styled.div`
-    height: 1000px;
+    height: 1100px;
     margin: 0 400px 50px 20px;
 `;
 export const FoodGridContainer = styled.div`
@@ -41,7 +50,7 @@ export const FoodContainer = styled.div`
     height: 100px;
     padding: 10px;
     font-family: 20px;
-    background-image: ${(props: FoodProps) => `url(${props.img});`};
+    background-image: ${(props: StyledProps) => `url(${props.img});`};
     background-position: center;
     background-size: cover;
     filter: contrast(75%);
@@ -65,7 +74,7 @@ export const FoodLabel = styled(TitleContainer)`
     border-top-left-radius: 7px;
 `;
 
-export const FoodDialogContainer = styled.div`
+export const FoodDialogContainerStyle = styled.div`
     width: 500px;
     background-color: ${white};
     position: fixed;
@@ -79,6 +88,8 @@ export const FoodDialogContainer = styled.div`
 export const FoodDialogContent = styled.div`
     overflow: auto;
     height: 100px;
+    padding-left: 30px;
+    padding-bottom: 80px;
 `;
 export const FoodDialogFooter = styled.div`
     box-shadow: 0 -2px 10px 0 grey;
@@ -86,6 +97,7 @@ export const FoodDialogFooter = styled.div`
     display: flex;
     justify-content: center;
 `;
+
 export const FoodDialogConfirmButton = styled(TitleContainer)`
     margin: 10px;
     color: ${white};
@@ -96,6 +108,13 @@ export const FoodDialogConfirmButton = styled(TitleContainer)`
     width: 200px;
     cursor: pointer;
     background-color: ${pizzaRed};
+    ${({ disable }: StyledProps) =>
+        disable &&
+        `
+            opacity: .5;
+            backgroun-color: grey;
+            pointer-events: none;
+        `}
 `;
 export const FoodDialogContainerShadow = styled.div`
     position: fixed;
@@ -110,13 +129,14 @@ export const FoodDialogContainerShadow = styled.div`
 export const FoodDialogBanner = styled.div`
     min-height: 200px;
     margin-bottom: 20px;
-    ${({ img }: FoodProps) => `background-image: url(${img});`}
+    ${({ img }: StyledProps) =>
+        img ? `background-image: url(${img});` : `min-height: 75px;`}
     background-position: center;
     background-size: cover;
 `;
 
 export const FoodDialogBannerName = styled(FoodLabel)`
-    top: 100px;
+    top: ${({ img }: StyledProps) => (img ? `100px;` : `20px;`)};
     font-size: 30px;
     padding: 5px 40px;
     border-top-left-radius: 0;
@@ -138,4 +158,74 @@ export const OrderContainer = styled.div`
 export const OrderContent = styled(FoodDialogContent)`
     padding: 20px;
     height: 100%;
+`;
+export const OrderConainerItem = styled.div`
+    padding: 10px 0;
+    border-bottom: 1px solid grey;
+    transition: 0.3s;
+    ${({ editable }: StyledProps) =>
+        editable
+            ? `
+            &:hover {
+                cursor: pointer;
+                background-color: #e7e7e7;
+            }   
+        `
+            : `pointer-events: none`}
+`;
+export const OrderItem = styled.div`
+    display: grid;
+    grid-template-columns: 2px 150px 20px 60px;
+    justify-content: space-between;
+    padding: 10px 0;
+`;
+export const DetailItem = styled.div`
+    color: grey;
+    font-size: 10px;
+    margin-left: 25px;
+    margin-right: 20px;
+`;
+export const QuantityInput = styled.input`
+    font-size: 18px;
+    width: 25px;
+    text-align: center;
+    border: none;
+    outline: none;
+`;
+export const IncrementContainer = styled(TitleContainer)`
+    display: flex;
+    height: 24px;
+`;
+export const IncrementButton = styled.button`
+    width: 23px;
+    font-size: 20px;
+    padding: -12px;
+    text-align: center;
+    cursor: pointer;
+    line-height: 23px;
+    margin: 0 10px;
+    color: ${pizzaRed};
+    border-radius: 5px;
+    border: 1px solid ${pizzaRed};
+    border-radius: 0;
+    ${({ disabled }: any) =>
+        disabled &&
+        `
+            opacity: 0.5;  
+            pointer-events: none;
+        `};
+    &:hover {
+        background-color: #ffe3e3;
+    }
+`;
+export const ToppingsGrid = styled.div`
+    display: grid;
+    grid-template-columns: repeat(3fr, 1fr);
+`;
+export const ToppingsCheckBox = styled.input`
+    margin-right: 10px;
+    cursor: pointer;
+`;
+export const ToppingsLabel = styled.label`
+    cursor: pointer;
 `;
