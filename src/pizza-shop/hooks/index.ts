@@ -4,6 +4,7 @@ import { useOrders } from "./useOrders";
 import { useQuantity } from "./useQuantity";
 import { useToppings } from "./useToppings";
 import { useChoice } from "./useChoice";
+import { useAuthentification } from "./useAuthentification";
 
 export {
     useTitle,
@@ -12,4 +13,5 @@ export {
     useQuantity,
     useToppings,
     useChoice,
+    useAuthentification,
 };

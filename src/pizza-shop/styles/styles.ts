@@ -20,6 +20,8 @@ export const NavBarContainer = styled.div`
     position: fixed;
     width: 100%;
     z-index: 1;
+    display: flex;
+    justify-content: space-between;
 `;
 const TitleContainer = styled.div`
     font-family: "Righteous", cursive;
@@ -232,5 +234,13 @@ export const ToppingsCheckBox = styled.input`
     cursor: pointer;
 `;
 export const ToppingsLabel = styled.label`
+    cursor: pointer;
+`;
+export const UserStatus = styled.div`
+    color: #ffffff;
+    font-size: 12px;
+    margin-right: 30px;
+`;
+export const LoginButton = styled.span`
     cursor: pointer;
 `;

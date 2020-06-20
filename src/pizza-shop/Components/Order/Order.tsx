@@ -14,9 +14,17 @@ interface OrderProps {
     orders: Array<OrderInterface>;
     setOrders: any;
     setOpenFood: any;
+    login: any;
+    loggedIn: any;
 }
 
-export const Order = ({ orders, setOrders, setOpenFood }: OrderProps) => {
+export const Order = ({
+    orders,
+    setOrders,
+    setOpenFood,
+    login,
+    loggedIn,
+}: OrderProps) => {
     const subtotal: number = orders.reduce((total, order) => {
         return total + getPrice(order, true);
     }, 0);
@@ -51,7 +59,9 @@ export const Order = ({ orders, setOrders, setOpenFood }: OrderProps) => {
                                         deletItem(index);
                                     }}
                                 >
-                                    <span role="img" aria-label="remove">❌</span>
+                                    <span role="img" aria-label="remove">
+                                        ❌
+                                    </span>
                                 </div>
                                 <div>{formatPrice(getPrice(order, true))}</div>
                             </OrderItem>
@@ -85,7 +95,17 @@ export const Order = ({ orders, setOrders, setOpenFood }: OrderProps) => {
                 </OrderContent>
             )}
             <FoodDialogFooter>
-                <FoodDialogConfirmButton>Checkout</FoodDialogConfirmButton>
+                <FoodDialogConfirmButton
+                    onClick={() => {
+                        if (loggedIn) {
+                            console.log("LoggedIn");
+                        } else {
+                            login();
+                        }
+                    }}
+                >
+                    Checkout
+                </FoodDialogConfirmButton>
             </FoodDialogFooter>
         </OrderContainer>
     );
