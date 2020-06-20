@@ -18,6 +18,38 @@ interface OrderProps {
     loggedIn: any;
 }
 
+declare const window: any;
+const database = window.firebase.database();
+
+function sendOrder(orders: Array<OrderInterface>, { email, displayName }: any) {
+    var newOrderRef = database.ref("orders").push();
+    const newOrders = orders.map((order: any) => {
+        return Object.keys(order).reduce((acc, orderKey) => {
+            if (!order[orderKey]) {
+                // undefined value
+                return acc;
+            }
+            if (orderKey === "toppings") {
+                return {
+                    ...acc,
+                    [orderKey]: order[orderKey]
+                        .filter(({ checked }: any) => checked)
+                        .map(({ name }: OrderInterface) => name),
+                };
+            }
+            return {
+                ...acc,
+                [orderKey]: order[orderKey],
+            };
+        }, {});
+    });
+    newOrderRef.set({
+        order: newOrders,
+        email,
+        displayName,
+    });
+}
+
 export const Order = ({
     orders,
     setOrders,
@@ -98,7 +130,7 @@ export const Order = ({
                 <FoodDialogConfirmButton
                     onClick={() => {
                         if (loggedIn) {
-                            console.log("LoggedIn");
+                            sendOrder(orders, loggedIn);
                         } else {
                             login();
                         }
