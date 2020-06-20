@@ -6,15 +6,15 @@ interface ChoicesProps {
     choiceRadio: any;
 }
 
-export const Choices = ({ openFood, choiceRadio }: any) => {
+export const Choices = ({ openFood, choiceRadio }: ChoicesProps) => {
     return (
         <Fragment>
             <h3>Chose one</h3>
             {openFood.choices.map((choice: any, index: number) => (
                 <Fragment key={index}>
                     <input
-                        type='radio'
-                        name='choice'
+                        type="radio"
+                        name="choice"
                         id={choice}
                         value={choice}
                         onChange={choiceRadio.onChange}
