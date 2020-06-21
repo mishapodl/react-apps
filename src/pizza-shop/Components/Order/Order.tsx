@@ -16,6 +16,7 @@ interface OrderProps {
     setOpenFood: any;
     login: any;
     loggedIn: any;
+    setOpenOrderDialog: any;
 }
 
 declare const window: any;
@@ -56,6 +57,7 @@ export const Order = ({
     setOpenFood,
     login,
     loggedIn,
+    setOpenOrderDialog,
 }: OrderProps) => {
     const subtotal: number = orders.reduce((total, order) => {
         return total + getPrice(order, true);
@@ -127,17 +129,24 @@ export const Order = ({
                 </OrderContent>
             )}
             <FoodDialogFooter>
-                <FoodDialogConfirmButton
-                    onClick={() => {
-                        if (loggedIn) {
-                            sendOrder(orders, loggedIn);
-                        } else {
-                            login();
-                        }
-                    }}
-                >
-                    Checkout
-                </FoodDialogConfirmButton>
+                {orders.length !== 0 ? (
+                    <FoodDialogConfirmButton
+                        onClick={() => {
+                            if (loggedIn) {
+                                setOpenOrderDialog(true);
+                                sendOrder(orders, loggedIn);
+                            } else {
+                                login();
+                            }
+                        }}
+                    >
+                        Checkout
+                    </FoodDialogConfirmButton>
+                ) : (
+                    <FoodDialogConfirmButton style={{ pointerEvents: "none" }}>
+                        Take order
+                    </FoodDialogConfirmButton>
+                )}
             </FoodDialogFooter>
         </OrderContainer>
     );

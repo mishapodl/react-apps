@@ -35,6 +35,10 @@ export interface ChicesInterface {
     value: any;
     onChange: any;
 }
+export interface OrderDialogInterface {
+    openOrderDialog: boolean;
+    setOpenOrderDialog: any;
+}
 export const formatPrice = (price: number) =>
     price.toLocaleString("en-US", {
         style: "currency",
